@@ -3,6 +3,7 @@ package coom.junit5;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -20,7 +21,11 @@ class StringTest {
 
 	@BeforeEach // @Before
 	void beforeEach(TestInfo info) {
-	System.out.println("Initialize Test Data");
+	System.out.println("Initialize Test Data for "+ info.getDisplayName() );
+	}
+	@AfterEach // @After
+	void afterEach(TestInfo info) {
+	System.out.println("Clean up Test Data");
 	}
 	
 	@Test
