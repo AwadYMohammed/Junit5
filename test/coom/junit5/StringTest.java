@@ -1,6 +1,6 @@
 package coom.junit5;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -15,4 +15,11 @@ class StringTest {
 		//check in junit called Assertions.
 	}
 
+	
+	@Test
+	void containsBasic() {
+		String abc = "abc";
+		boolean result = abc.contains("abc");
+		assertFalse(result);
+		}
 }
