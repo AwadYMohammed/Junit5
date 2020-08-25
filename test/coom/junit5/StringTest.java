@@ -1,12 +1,14 @@
 package coom.junit5;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
@@ -37,6 +39,16 @@ class StringTest {
 	@AfterAll
 	static void afterAll() {
 	System.out.println("Close connection to database");
+	}
+	@Test
+	 @DisplayName("When length is null, throw an exception")
+	void length_exception() {
+	String str = null;
+	assertThrows(NullPointerException.class,
+	() -> {
+	str.length();
+	}
+	);
 	}
 	@Test
 	void containsBasic() {
