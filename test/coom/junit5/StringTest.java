@@ -72,6 +72,7 @@ class StringTest {
 		assertTrue(str.length() > 0);
 	}
 	@Test
+	@Disabled
 	@RepeatedTest(3)
 	void contains_basic() {
 		assertFalse("abcdefgh".contains("ijk"));
