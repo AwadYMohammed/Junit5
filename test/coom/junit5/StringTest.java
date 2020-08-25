@@ -2,9 +2,10 @@ package coom.junit5;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 class StringTest {
 
@@ -17,6 +18,10 @@ class StringTest {
 		//check in junit called Assertions.
 	}
 
+	@BeforeEach // @Before
+	void beforeEach(TestInfo info) {
+	System.out.println("Initialize Test Data");
+	}
 	
 	@Test
 	void containsBasic() {
@@ -30,7 +35,7 @@ class StringTest {
 	void split_basic() {
 		String str = "abc def ghi";
 		String actualResult[] = str.split(" ");
-		String[] expectedResult = new String[] { "abc", "def", "ghi" };
+		String[] expectedResult = new String[] { "abc1", "def", "ghi" };
 		assertArrayEquals(expectedResult, actualResult);
 	}
 }
