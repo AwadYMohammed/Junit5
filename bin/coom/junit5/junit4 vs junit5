@@ -1,0 +1,13 @@
+@BeforeAll    @BeforeClass
+@AfterAll    @AfterClass
+@AfterEach    @After
+@BeforeEach    @Before
+@Disable   @Ignore
+@Tag  @Category
+assertThrows instead of expected attribute
+assertTimeout instead of Timeout attribute
+
+
+NEW IN JUNIT5
+@Nested for nested tests
+@RepeatedTest to execute tests multiple times
