@@ -5,11 +5,15 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+
+import java.time.Duration;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -72,6 +76,17 @@ class StringTest {
 	void contains_basic() {
 		assertFalse("abcdefgh".contains("ijk"));
 	}
+	@Test
+	@Disabled
+	void performanceTest() {
+		assertTimeout(Duration.ofSeconds(5), () -> {
+			for (int i = 0; i <= 1000000; i++) {
+				int j = i;
+				System.out.println(j);
+			}
+		});
+	}
+
 	@Test
 	void split_basic() {
 		String str = "abc def ghi";
