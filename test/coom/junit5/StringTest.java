@@ -21,9 +21,10 @@ import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Nested;
 
 class StringTest {
-
+private String str = "";
 	@Test
 	void whateveryouwant() {
 		
@@ -102,4 +103,29 @@ class StringTest {
 	void length(String word, int expectedLength) {
 		assertEquals(expectedLength, word.length());
 	}
-}
+	
+
+	@Nested
+	@DisplayName("For an empty String")
+	class EmptyStringTests {
+		@BeforeEach
+		void setToEmpty() {
+			str = "";
+		}
+
+		@Test
+		@DisplayName("length should be zero")
+		void lengthIsZero() {
+			String str;
+			assertEquals(0, str.length());
+		}
+
+		@Test
+		@DisplayName("upper case is empty")
+		void uppercaseIsEmpty() {
+			assertEquals("", str.toUpperCase());
+		}
+	
+
+	
+}}
