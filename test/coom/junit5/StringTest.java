@@ -1,6 +1,7 @@
 package coom.junit5;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringTest {
@@ -70,5 +72,10 @@ class StringTest {
 		String actualResult[] = str.split(" ");
 		String[] expectedResult = new String[] { "abc1", "def", "ghi" };
 		assertArrayEquals(expectedResult, actualResult);
+	}
+	@ParameterizedTest(name = "{0} length is {1}")
+	@CsvSource(value = { "abcd, 4", "abc, 3", "'',0", "abcdefg, 7" })
+	void length(String word, int expectedLength) {
+		assertEquals(expectedLength, word.length());
 	}
 }
