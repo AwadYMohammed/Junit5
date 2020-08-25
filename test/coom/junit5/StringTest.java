@@ -125,7 +125,7 @@ private String str = "";
 		void uppercaseIsEmpty() {
 			assertEquals("", str.toUpperCase());
 		}
-	
+	//  JUnit Patterns - xunitpatterns
 // JUnit 5 = Platform + Jupiter + Vintage
 		
 	
