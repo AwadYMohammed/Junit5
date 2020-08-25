@@ -2,6 +2,7 @@ package coom.junit5;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +11,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -65,7 +67,11 @@ class StringTest {
 	void length_greater_than_zero_using_parameterized_test(String str) {
 		assertTrue(str.length() > 0);
 	}
-	
+	@Test
+	@RepeatedTest(3)
+	void contains_basic() {
+		assertFalse("abcdefgh".contains("ijk"));
+	}
 	@Test
 	void split_basic() {
 		String str = "abc def ghi";
