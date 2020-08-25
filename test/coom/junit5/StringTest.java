@@ -126,6 +126,7 @@ private String str = "";
 			assertEquals("", str.toUpperCase());
 		}
 	
-
+// JUnit 5 = Platform + Jupiter + Vintage
+		
 	
 }}
