@@ -3,7 +3,9 @@ package coom.junit5;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -25,9 +27,17 @@ class StringTest {
 	}
 	@AfterEach // @After
 	void afterEach(TestInfo info) {
-	System.out.println("Clean up Test Data");
+	System.out.println("Clean up Test Data for "+ info.getDisplayName()  );
 	}
-	
+	@BeforeAll
+	static void beforeAll() {
+	System.out.println("Initialize connection to database");
+	}
+
+	@AfterAll
+	static void afterAll() {
+	System.out.println("Close connection to database");
+	}
 	@Test
 	void containsBasic() {
 		String abc = "abc";
